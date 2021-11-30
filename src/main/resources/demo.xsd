@@ -17,4 +17,63 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="getAvailableMatchRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="available" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAvailableMatchResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="match" type="tns:match" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getLocalitiesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="matchId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getLocalitiesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="location" type="tns:location" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="buyLocationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="locationId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="match">
+        <xs:sequence>
+            <xs:element name="matchId" type="xs:int"/>
+            <xs:element name="localTeam" type="xs:string"/>
+            <xs:element name="visitingTeam" type="xs:string"/>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="site" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="location">
+        <xs:sequence>
+            <xs:element name="locationId" type="xs:int"/>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="availability" type="xs:double"/>
+            <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
